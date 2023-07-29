@@ -80,6 +80,6 @@ unsafe
 	printList(list);
 	deleteFirst(list, 2);
 	insert(list, 6, 2);
-	printList(list);
+	printList(list);//输出0 1 2 3 0 1 6 3
 }
 
