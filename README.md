@@ -1,1 +1,3 @@
 # MyScripts
+
+dotnet script
