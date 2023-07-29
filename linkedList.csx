@@ -40,6 +40,22 @@ unsafe
 		WriteLine(temp->num);
 	}
 
+	//head算是第0个，pos=2就是插在第一个和第三个之间
+	void insert(Node* head, int val, int pos)
+	{
+		Node* temp = head;
+		var newNode = (Node*)Marshal.AllocHGlobal(sizeof(Node));
+		newNode->num = val;
+		newNode->next = null;
+		for (int i = 0; i < pos - 1; i++)
+		{
+			temp = temp->next;
+		}
+		newNode->next = temp->next;
+		temp->next = newNode;
+	}
+
+	// 删除遇到的第一个num等于val的结点
 	void deleteFirst(Node* head, int val)
 	{
 		Node* temp = head;
@@ -63,8 +79,7 @@ unsafe
 	add(list, 3);
 	printList(list);
 	deleteFirst(list, 2);
-	deleteFirst(list, 3);
-	deleteFirst(list, 1);
+	insert(list, 6, 2);
 	printList(list);
 }
 
